@@ -96,10 +96,33 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_recipe")
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if request.method == "POST":
+        is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
+        is_vegan = "on" if request.form.get("is_vegan") else "off"
+        recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_spicy_scale": request.form.get("recipe_spicy_scale"),
+            "category_name": request.form.get("category_name"),
+            "img_url": request.form.get("img_url"),
+            "recipe_serves": request.form.get("recipe_serves"),
+            "prep_time": request.form.get("prep_time"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_method": request.form.get("recipe_method"),
+            "recipe_inventor": request.form.get("recipe_inventor"),
+            "is_vegetarian": is_vegetarian,
+            "is_vegan": is_vegan
+        }
+
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe successfully added")
+        return redirect(url_for("profile", username=session['user']))
+
+    spicelevel = mongo.db.spicelevel.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html", categories=categories)
+    return render_template(
+        "add_recipe.html", spicelevel=spicelevel, categories=categories)
 
 
 if __name__ == "__main__":
