@@ -17,15 +17,13 @@
             <!-- Spiciness -->
             <div class="row">
                 <div class="input-field col s11">
-                    <select id="recipe_spicy_scale" name="recipe_spicy_scale" class="validate" required>
+                    <select id="spiciness" name="spiciness" class="validate" required>
                         <option value="" disabled selected>How spicy is it?</option>
-                        <option value="1">Spicy</option>
-                        <option value="2">Hot</option>
-                        <option value="3">Hot Hot</option>
-                        <option value="4">Fiery Hot</option>
-                        <option value="5">SCARY HOT</option>
+                        {% for level in spicelevel %}
+                        <option value="{{ level.spiciness}}">{{ level.spiciness}}</option>
+                        {% endfor %}
                     </select>
-                    <label for="spicy_scale">Spicy Scale</label>
+                    <label for="spiciness">Spiciness</label>
                 </div>
             </div>
             <!-- Category name -->
