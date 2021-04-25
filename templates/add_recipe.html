@@ -19,8 +19,8 @@
                 <div class="input-field col s11">
                     <select id="spiciness" name="spiciness" class="validate" required>
                         <option value="" disabled selected>How spicy is it?</option>
-                        {% for level in spicelevel %}
-                        <option value="{{ level.spiciness}}">{{ level.spiciness}}</option>
+                        {% for intensity in spicelevel %}
+                        <option value="{{ intensity.spiciness}}">{{ intensity.spiciness}}</option>
                         {% endfor %}
                     </select>
                     <label for="spiciness">Spiciness</label>
@@ -88,8 +88,10 @@
             <!-- Inventor  -->
             <div class="row">
                 <div class="input-field col s11">
-                    <textarea id="recipe_inventor" name="recipe_inventor" class="materialize-textarea"></textarea>
-                    <label for="tips">Whose creation is it?</label>
+                    <textarea id="recipe_inventor" name="recipe_inventor"
+                        class="materialize-textarea validate"></textarea>
+                    <label for="recipe_inventor">Inventor</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"> Who invented this recipe?</span>
                 </div>
             </div>
             <!-- Vegetarian  -->
