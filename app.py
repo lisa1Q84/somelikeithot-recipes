@@ -18,6 +18,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# MAIN PAGE
+
 
 @app.route("/")
 @app.route("/get_recipes")
@@ -25,7 +27,7 @@ def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
-# Register
+# REGISTER
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -50,7 +52,7 @@ def register():
 
     return render_template("register.html")
 
-# Login
+# LOGIN
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -78,6 +80,9 @@ def login():
     return render_template("login.html")
 
 
+# PROFILE PAGE
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
@@ -92,11 +97,16 @@ def profile(username):
         return render_template("login.html")
 
 
+# LOGOUT
+
+
 @ app.route("/logout")
 def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+# ADD RECIPE
 
 
 @ app.route("/add_recipe", methods=["GET", "POST"])
@@ -128,13 +138,47 @@ def add_recipe():
     return render_template(
         "add_recipe.html", spicelevel=spicelevel, categories=categories)
 
+# EDIT RECIPE
+
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
+        is_vegan = "on" if request.form.get("is_vegan") else "off"
+        submit = {
+            "recipe_name": request.form.get("recipe_name"),
+            "spiciness": request.form.get("spiciness"),
+            "category_name": request.form.get("category_name"),
+            "img_url": request.form.get("img_url"),
+            "recipe_serves": request.form.get("recipe_serves"),
+            "prep_time": request.form.get("prep_time"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_method": request.form.get("recipe_method"),
+            "recipe_inventor": request.form.get("recipe_inventor"),
+            "is_vegetarian": is_vegetarian,
+            "is_vegan": is_vegan,
+            "added_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe successfully edited")
+        return redirect(url_for("profile", username=session['user']))
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    spicelevel = mongo.db.spicelevel.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "edit_recipe.html", recipe=recipe, categories=categories)
+        "edit_recipe.html", recipe=recipe, spicelevel=spicelevel,
+        categories=categories)
+
+
+# DELETE RECIPE
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe successfully deleted")
+    return redirect(url_for("profile", username=session['user']))
 
 
 if __name__ == "__main__":
