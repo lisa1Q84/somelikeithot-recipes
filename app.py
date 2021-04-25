@@ -82,28 +82,31 @@ def login():
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    user = session.get("user").lower()
+    user_recipes = list(
+        mongo.db.recipes.find({"added_by": session["user"]}))
+    if user is not None:
+        return render_template(
+            "profile.html", username=username, recipes=user_recipes)
+    else:
+        return render_template("login.html")
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
 
-    return redirect(url_for("login"))
-
-
-@app.route("/logout")
+@ app.route("/logout")
 def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-@app.route("/add_recipe", methods=["GET", "POST"])
+@ app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         is_vegan = "on" if request.form.get("is_vegan") else "off"
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_spicy_scale": request.form.get("recipe_spicy_scale"),
+            "spiciness": request.form.get("spiciness"),
             "category_name": request.form.get("category_name"),
             "img_url": request.form.get("img_url"),
             "recipe_serves": request.form.get("recipe_serves"),
@@ -112,7 +115,8 @@ def add_recipe():
             "recipe_method": request.form.get("recipe_method"),
             "recipe_inventor": request.form.get("recipe_inventor"),
             "is_vegetarian": is_vegetarian,
-            "is_vegan": is_vegan
+            "is_vegan": is_vegan,
+            "added_by": session["user"]
         }
 
         mongo.db.recipes.insert_one(recipe)
@@ -123,6 +127,14 @@ def add_recipe():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "add_recipe.html", spicelevel=spicelevel, categories=categories)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, categories=categories)
 
 
 if __name__ == "__main__":
