@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3> Edit Recipe </h3>
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for ('edit_recipe', recipe_id= recipe._id) }}">
+        <div class="row">
+            <!-- Recipe Name -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <input id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" type="text"
+                        pattern="^[^\s][A-Za-z0-9\s]{1,20}$" class="validate" required>
+                    <label for="recipe_name">Recipe name</label>
+                </div>
+            </div>
+            <!-- Spiciness -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <select id="spiciness" name="spiciness" class="validate" required>
+                        <option value="" disabled selected>How spicy is it?</option>
+                        {% for intensity in spicelevel %}
+                        {% if intensity.spiciness == recipe.spiciness %}
+                        <option value="{{ intensity.spiciness}}" selected>{{ intensity.spiciness}}</option>
+                        {% else %}
+                        <option value="{{ intensity.spiciness}}">{{ intensity.spiciness}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="spiciness">Spiciness</label>
+                </div>
+            </div>
+            <!-- Category name -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose category</option>
+                        {% for category in categories %}
+                        {% if category.category_name == recipe.category_name %}
+                        <option value="{{ category.category_name}}" selected>{{ category.category_name}}</option>
+                        {% else %}
+                        <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Recipe category</label>
+                </div>
+            </div>
+            <!-- Enter Img URL -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <input id="img_url" name="img_url" value="{{ recipe.img_url }}" type="url" pattern="https?://.+"
+                        class="validate" required>
+                    <label for="img_url">Image url</label>
+                    <span class="helper-text" data-error="enter valid URL" data-success="right"></span>
+                </div>
+            </div>
+            <!-- Serves -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <input id="recipe_serves" name="recipe_serves" value="{{ recipe.recipe_serves }}" type="text"
+                        pattern="^[1-9][0-9]*$" class="validate" required>
+                    <label for="recipe_serves">Number of serves</label>
+                    <span class="helper-text" data-error="enter valid number" data-success="right">For example: 2</span>
+                </div>
+            </div>
+            <!-- Preping time  -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <input id="prep_time" name="prep_time" value="{{ recipe.prep_time }}" type="text"
+                        pattern="^[1-9][0-9]*$" class="validate" required>
+                    <label for="prep_time">Prepping time (in minutes)</label>
+                    <span class="helper-text" data-error="enter valid number" data-success="right">For examle: 45</span>
+                </div>
+            </div>
+            <!-- Ingredients  -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate"
+                        required>{{- recipe.recipe_ingredients -}}</textarea>
+                    <label for="recipe_ingredients">Ingredients</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Write every new ingredient on a
+                        new
+                        line.</span>
+                </div>
+            </div>
+            <!-- Method  -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <textarea id="recipe_method" name="recipe_method" class="materialize-textarea validate" required>
+                    {{- recipe.recipe_method -}}
+                    </textarea>
+                    <label for="recipe_method">Instructions</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Please write every step onto a new
+                        line.</span>
+                </div>
+            </div>
+            <!-- Inventor  -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <textarea id="recipe_inventor" name="recipe_inventor" value="{{ recipe.recipe_inventor }}"
+                        class="materialize-textarea"></textarea>
+                    <label for="tips">Whose creation is it? If it is your own just write your name.</label>
+                </div>
+            </div>
+            <!-- Vegetarian  -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <!-- Switch -->
+                    <div class="switch">
+                        <label for="is_vegetarian">
+                            <input type="checkbox" id="is_vegetarian" name="is_vegetarian">
+                            <span class="lever"></span>
+                            Vegetarian
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Vegan  -->
+            <div class="row">
+                <div class="input-field col s11">
+                    <!-- Switch -->
+                    <div class="switch">
+                        <label for="is_vegan">
+                            <input type="checkbox" id="is_vegan" name="is_vegan">
+                            <span class="lever"></span>
+                            Vegan
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s11">
+                    <button type="submit" class="col s4 btn-small custom-btn waves-effect deep-orange">Edit
+                        recipe</button>
+                    <a class="col s3 btn-small custom-btn center-align waves-effect deep-orange"
+                        href="{{ url_for('profile', username=session['user'])  }}">Cancel</a>
+                </div>
+
+            </div>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
