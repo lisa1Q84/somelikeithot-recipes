@@ -26,7 +26,8 @@
                                 <i class="material-icons">delete</i>
                             </button>
                         </form>
-                        <form style="display: inline;" action="" method="POST">
+                        <form style="display: inline;" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                            method="POST">
                             <button type="submit" class="btn-floating btn waves-effect waves-light blue">
                                 <i class="material-icons">edit</i>
                             </button>
