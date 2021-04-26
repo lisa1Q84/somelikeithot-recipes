@@ -1,5 +1,91 @@
  /*  navigation */
 
- .spicy-nav {
-     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5)
+ nav ul a {
+     color: black;
+ }
+
+ nav .brand-logo {
+     font-size: 1.3rem;
+     color: black;
+ }
+
+ i.material-icons.burger {
+     color: black;
+ }
+
+ /*  header */
+
+
+ #header-photo.row {
+     background: url(https://api.time.com/wp-content/uploads/2014/07/hot_peppers.jpg);
+     background-size: cover;
+     min-height: 400px;
+     position: relative;
+     width: 100%;
+     padding: 15px;
+ }
+
+ .header-text {
+     background-color: black;
+     color: white;
+     margin: 0;
+     padding: 1rem;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     margin-right: -50%;
+     transform: translate(-50%, -50%)
+ }
+
+ .sub-heading h5 {
+     padding: 1rem;
+ }
+
+ .solid {
+     border-top: 3px solid #bbb;
+     width: 100%;
+ }
+
+
+ /*  Index */
+
+ .card.small {
+     height: 300px;
+ }
+
+
+ /*  Single Recipe */
+
+ .ingredients {
+     border: dashed 2px #41403E;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+ }
+
+ h2 {
+     border-bottom: 1px solid #CCC;
+     padding-bottom: 3px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ @media (min-width: 480px) {
+     nav .brand-logo {
+         font-size: 2rem;
+     }
+
+     a.brand-logo {
+         padding-left: 2rem
+     }
  }
