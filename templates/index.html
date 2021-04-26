@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="row" id="header-photo">
+    <h4 class="header-text light center-align">A Recipe Sharing Website For Lovers Of Spicy Food</h4>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h5 class="sub-heading center-align"> SPICY IS HEALTHY FOR YOU AND HERE IS WHY...</h5>
+            <p class="center-align">
+                The magic behind the heat is capsaicin, an ingredient that’s found in one of the most heavily consumed
+                spices throughout the world: chili pepper.
+                About a century ago, scientists began researching capsaicin from chili peppers and found that it has
+                many surprising health benefits.
+                Here are four advantages to adding some spice to your life:
+            </p>
+            <br><br>
+        </div>
+        <div class="row">
+            <div class="col s6 center-align">
+                <i class="material-icons">favorite</i><br>
+                <p>Spicy foods may keep your heart healthy.</p>
+            </div>
+            <div class="col s6 center-align">
+                <i class="material-icons">fitness_center</i> <br>
+                <p>Spicy foods may promote weight loss and kick-start your metabolism.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 center-align">
+                <i class="material-icons">local_hospital</i> <br>
+                <p>Spicy foods may be an effective pain reliever.</p>
+            </div>
+            <div class="col s6 center-align">
+                <i class="material-icons">insert_emoticon</i><br>
+                <p>Spicy foods may calm your gut and keep it happy & healthy.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="solid"></div>
+
+<div class="top-recipe container">
+    <div class="col s12">
+        <h4 class="center-align"> Top 5 Recipes </h4>
+    </div>
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col s12 m6 l4">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
+                <div class="card small">
+                    <div class="card-image">
+                        <img class="img_recipe" src="{{ recipe.img_url }}" alt="recipe">
+                    </div>
+                    <div class="card-content">
+                        <p>{{ recipe.recipe_name }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
