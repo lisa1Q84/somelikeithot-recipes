@@ -18,19 +18,35 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# MAIN PAGE
+# HOME / INDEX
 
 
 @app.route("/")
+def get_index():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("index.html", recipes=recipes)
+
+
+# RECIPES
+
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
+# SINGLE RECIPE
+
+
+@app.route("/recipe/<recipe_id>")
+def recipe(recipe_id):
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    return render_template("recipe.html", recipe=recipe_db)
+
+
 # REGISTER
 
 
-@app.route("/register", methods=["GET", "POST"])
+@ app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -55,7 +71,7 @@ def register():
 # LOGIN
 
 
-@app.route("/login", methods=["GET", "POST"])
+@ app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -83,7 +99,7 @@ def login():
 # PROFILE PAGE
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
+@ app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -141,7 +157,7 @@ def add_recipe():
 # EDIT RECIPE
 
 
-@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+@ app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
@@ -174,7 +190,7 @@ def edit_recipe(recipe_id):
 
 # DELETE RECIPE
 
-@app.route("/delete_recipe/<recipe_id>")
+@ app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe successfully deleted")
