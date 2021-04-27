@@ -34,6 +34,20 @@ def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
+# SEARCH RECIPES
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    if len(recipes) == 0:
+        flash(f"We're sorry but no recipes with {query} were found!")
+    else:
+        flash(f"Your search for {query} returned {len(recipes)} result(s)!")
+    return render_template("recipes.html", recipes=recipes)
+
+
 # SINGLE RECIPE
 
 
