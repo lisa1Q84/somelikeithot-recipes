@@ -1,12 +1,34 @@
+ 
+
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Oi&family=Open+Sans:ital,wght@0,400;0,600;1,300;1,400&display=swap');
+ 
+ body {background: url("https://image.shutterstock.com/image-vector/hand-drawn-chili-pepper-seamless-600w-701434675.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+ 
+.container{
+    background-color: white
+}
+ 
+ 
  /*  navigation */
+
+.nav
+{
+   background-color: transparent;
+}
 
  nav ul a {
      color: black;
+     
  }
 
  nav .brand-logo {
      font-size: 1.3rem;
      color: black;
+     
  }
 
  i.material-icons.burger {
@@ -17,9 +39,8 @@
 
 
  #header-photo.row {
-     background: url(https://api.time.com/wp-content/uploads/2014/07/hot_peppers.jpg);
      background-size: cover;
-     min-height: 400px;
+     min-height: 300px;
      position: relative;
      width: 100%;
      padding: 15px;
@@ -67,6 +88,7 @@
  }
 
 
+ /*  Add Recipe */
 
 
 
