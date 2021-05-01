@@ -22,9 +22,8 @@
                             Prep-Time: {{ recipe.prep_time}}</p>
                     </div>
                     <div class="card-action">
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                            class="btn-floating btn waves-effect modal-trigger red accent-4" href="#modal1"><i class="material-icons">delete</i></a>
-                        
+                        <div class="btn-floating btn waves-effect modal-trigger red accent-4" href="#modal1"><i class="material-icons">delete</i></a>
+                        </div>    
                           <!-- Modal Structure -->
                         <div id="modal1" class="modal">
                             <div class="modal-content">
