@@ -2,14 +2,26 @@
  
  /* Body */
 
- body {
+body {
     font-family: 'Raleway', sans-serif;
+    color: #333;
+}
+
+p{
     color: #333;
 }
 
 h1,h2,h3,h4{
     font-family: 'Oswald', sans-serif;
-    font-weight: medium;
+    font-weight: 400;
+    color: #333;
+}
+
+h5{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 1rem ;
+    color: #333;
 }
     
  
@@ -39,6 +51,14 @@ h1,h2,h3,h4{
  i.material-icons.burger {
     color: #333;
  }
+
+
+.btn-small {
+    height: 32.4px;
+    line-height: 32.4px;
+    font-size: 13px;
+    margin: 0.8rem;
+}
 
  /*  header */
 
@@ -87,6 +107,15 @@ h1,h2,h3,h4{
 
  /*  Single Recipe */
 
+
+.recipe-container{
+    margin-top:1rem;
+}
+
+.card.small .card-image+.card-content, .card.medium .card-image+.card-content, .card.large .card-image+.card-content {
+    max-height: 50%;
+}
+
  .ingredients {
      border: dashed 2px #41403E;
      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -96,6 +125,8 @@ h1,h2,h3,h4{
      border-bottom: 1px solid #CCC;
      padding-bottom: 3px;
  }
+
+
 
 
  /*  Add Recipe */
