@@ -15,8 +15,8 @@
                     Go ahead and admire the delicious dishes you could be cooking over the holidays (or any time really!) Between all these
                     you're sure to find something you love! <br>
                     If you'd like to add your own recipes, please <br></p> 
-                <p class="center-align"><a href="{{ url_for ('login')}}">Login/ Register</a> <br>
-                </p>
+                <p class="center-align"><a href="{{ url_for ('login')}}" class="btn red accent-4">Login/ Register</a> <br>
+                </p><br>
                 <img src="/static/images/chili_heart.png" class="responsive-img" alt="photo of chili">
             <h4> But is it healthy?</h4>
             <p>
@@ -51,7 +51,9 @@
                                 <img class="img_recipe" src="{{ recipe.img_url }}" alt="recipe">
                             </div>
                             <div class="card-content">
-                                <p>{{ recipe.recipe_name }}</p>
+                                <h5>{{ recipe.recipe_name }}</h5>
+                                <p>Spice-Level: {{ recipe.spiciness}} <br>
+                                    Prep-Time: {{ recipe.prep_time}}</p>
                             </div>
                         </div>
                     </a>
