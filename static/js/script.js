@@ -3,9 +3,8 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('select').formSelect();
     $('.dropdown-trigger').dropdown();
-    $(document).ready(function(){
-    $('.modal').modal();
-  });
+    $('.modal').modal()
+
 
     // Code below was copied from code institute mini project - adding A task - writing to the database - Materialize Form Validation 
     // https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/04-AddingATask-WritingToTheDatabase/02-materialize-select-validation/static/js/script.js
