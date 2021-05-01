@@ -7,7 +7,7 @@
 
     <!-- Login Form -->
 
-    <form class="col s6 m4 offset-m2" method="POST" action="{{ url_for('login') }}">
+    <form class="col m4 s12 offset-m2" method="POST" action="{{ url_for('login') }}">
 
         <h4>Already have an existing account?</h4>
 
@@ -29,16 +29,16 @@
                 </div>
             </div>
             <div class="row center-align">
-                <button class="btn waves-effect deep-orange" type="submit" name="action">Login
+                <button class="btn waves-effect red accent-4" type="submit" name="action">Login
                 </button>
             </div>
         </div>
     </form>
 
-    <div class="col s6 m4 offset-m2">
+    <div class="col m4 s12 offset-m2">
 
-        <h4> No account yet? </h4>
-        <a href="{{ url_for('register') }}">Register Here</a>
+        <h4> No account yet? </h4><br>
+        <a href="{{ url_for('register') }}" class="btn waves-effect red accent-4">Register Here</a>
 
     </div>
 
