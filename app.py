@@ -48,6 +48,7 @@ def search():
     else:
         flash(f"Your search for {query} returned {len(recipes)} result(s)!")
     return render_template("/recipes/recipes.html", recipes=recipes)
+    
 
 # FILTER RECIPES (CATEGORY & SPICE)
 
@@ -154,7 +155,7 @@ def profile(username):
 def logout():
     flash("You have been logged out")
     session.clear()
-    return redirect(url_for("/user/login"))
+    return redirect(url_for("login"))
 
 
 # ADD RECIPE
@@ -185,7 +186,7 @@ def add_recipe():
 
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully added")
-        return redirect(url_for("/user/profile", username=session['user']))
+        return redirect(url_for("profile", username=session['user']))
 
     spicelevel = mongo.db.spicelevel.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -222,7 +223,7 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe successfully edited")
-        return redirect(url_for("/user/profile", username=session['user']))
+        return redirect(url_for("profile", username=session['user']))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     spicelevel = mongo.db.spicelevel.find()
@@ -238,7 +239,7 @@ def edit_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe successfully deleted")
-    return redirect(url_for("/user/profile", username=session['user']))
+    return redirect(url_for("profile", username=session['user']))
 
 
 # ERROR HANDLERS
