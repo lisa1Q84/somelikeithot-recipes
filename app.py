@@ -86,7 +86,7 @@ def register():
 
         if existing_user:
             flash("Username already exists")
-            return redirect(url_for("/user/register"))
+            return redirect(url_for("register"))
 
         register = {
             "username": request.form.get("username").lower(),
@@ -96,7 +96,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("/user/profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("/user/register.html")
 
@@ -115,15 +115,17 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
-                return redirect(url_for("/user/profile", username=session["user"]))
+                return redirect(
+                    url_for("profile", username=session["user"])
+                    )
 
             else:
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("/user/login"))
+                return redirect(url_for("login"))
 
         else:
             flash("Incorrect Username and/or Password ")
-            return redirect(url_for("/user/login"))
+            return redirect(url_for("login"))
 
     return render_template("/user/login.html")
 
@@ -151,7 +153,7 @@ def profile(username):
 @ app.route("/logout")
 def logout():
     flash("You have been logged out")
-    session.clear("user")
+    session.clear()
     return redirect(url_for("/user/login"))
 
 
@@ -188,11 +190,11 @@ def add_recipe():
     spicelevel = mongo.db.spicelevel.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "recipes/add_recipe.html", spicelevel=spicelevel, categories=categories)
+        "recipes/add_recipe.html", spicelevel=spicelevel, 
+        categories=categories)
 
 
-
-#EDIT RECIPE
+# EDIT RECIPE
 
 
 @ app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
