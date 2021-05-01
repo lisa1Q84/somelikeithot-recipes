@@ -1,15 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Raleway:wght@300;400&display=swap');
  
+ /* Body */
 
-@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Oi&family=Open+Sans:ital,wght@0,400;0,600;1,300;1,400&display=swap');
- 
- body {background: url("https://image.shutterstock.com/image-vector/hand-drawn-chili-pepper-seamless-600w-701434675.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;}
+ body {
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Oswald', sans-serif;
+    font-weight: medium;
+}
+    
  
 .container{
-    background-color: white
+    background-color: #fbfbfb;
 }
  
  
@@ -17,28 +22,29 @@
 
 .nav
 {
-   background-color: transparent;
+   background-color:  #fbfbfb;
 }
 
  nav ul a {
-     color: black;
+    color: #333;
      
  }
 
  nav .brand-logo {
-     font-size: 1.3rem;
-     color: black;
-     
+    font-size: 1.3rem;
+    color: #333;
+    font-family: 'Oswald', sans-serif;  
  }
 
  i.material-icons.burger {
-     color: black;
+    color: #333;
  }
 
  /*  header */
 
 
  #header-photo.row {
+     background-image: url(/static/images/chilicover.jpg);
      background-size: cover;
      min-height: 300px;
      position: relative;
@@ -47,10 +53,10 @@
  }
 
  .header-text {
-     background-color: black;
-     color: white;
+     background-color: #333;
+     color:#fbfbfb;
      margin: 0;
-     padding: 1rem;
+     padding: 1.5rem;
      position: absolute;
      top: 50%;
      left: 50%;
@@ -70,9 +76,13 @@
 
  /*  Index */
 
- .card.small {
+.card.small {
      height: 300px;
  }
+
+.about{
+    border: solid;
+}
 
 
  /*  Single Recipe */
@@ -93,12 +103,11 @@
 
 
 
-
-
-
-
-
-
+@media only screen and (min-width: 993px){
+.container {
+    width: 85%;
+}
+}
 
 
 
