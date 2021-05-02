@@ -13,44 +13,47 @@
     <title>Recipe Site</title>
 </head>
 
-<header>
+<body>
 
-    <!------- NAV BAR -------->
+    <header>
 
-    <nav class="nav">
-        <div class="nav-wrapper">
-            <a href="{{ url_for('get_index') }}" class="brand-logo"> 🌶 SOME LIKE IT HOT</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons burger">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_index') }}">Home</a></li>
-                <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-                <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                {% else %}
-                <li><a href="{{ url_for('login') }}">Login/Register</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+        <!------- NAV BAR -------->
 
-    <!------- COLL MOBILE SIDE NAV BAR -------->
+        <nav class="nav">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_index') }}" class="brand-logo"> 🌶 SOME LIKE IT HOT</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons burger">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_index') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                    {% if session.user %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login/Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('get_index') }}">Home</a></li>
-        <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-        {% if session.user %}
-        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-        <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-        <li><a href="{{ url_for('logout') }}">Logout</a></li>
-        {% else %}
-        <li><a href="{{ url_for('login') }}">Login/Register</a></li>
-        {% endif %}
-    </ul>
+        <!------- COLL MOBILE SIDE NAV BAR -------->
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('get_index') }}">Home</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+            {% if session.user %}
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login/Register</a></li>
+            {% endif %}
+        </ul>
 
 
-</header>
+    </header>
+
 
     <section>
         <!-- PLACE TO SHOW FLASH MESSAGES -->
@@ -65,7 +68,7 @@
         {% endwith %}
     </section>
 
-<body>
+
 
     {% block content %}
 
