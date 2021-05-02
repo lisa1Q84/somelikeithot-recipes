@@ -121,6 +121,11 @@ img.banner{
  .ingredients {
      border: dashed 2px #41403E;
      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+     padding-left: 1rem !important;
+ }
+
+ .method {
+     padding-left: 2rem !important;
  }
 
  h2 {
