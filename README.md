@@ -24,7 +24,7 @@ SOME LIKE IT HOT
 
 This recipe sharing website is intended for spice lovers to explore new recipes and to collect their own recipes.
 
-The newly created live site can be viewed  [\[here\]]([https://flask-recipe-app-ms3.herokuapp.com/](https://flask-recipe-app-ms3.herokuapp.com/)/). This site was designed as a project to be submitted for grading in the third milestone project in Full Stack Software Development with the Code Institute.
+The newly created live site can be viewed  [here](https://flask-recipe-app-ms3.herokuapp.com/). This site was designed as a project to be submitted for grading in the third milestone project in Full Stack Software Development with the Code Institute.
 
 ## [](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/README.md#user-experience) User Experience
 
