@@ -5,7 +5,11 @@
 body {
     font-family: 'Raleway', sans-serif;
     color: #333;
+    background-color: #fbfbfb;
+    width: 100%;
 }
+
+
 
 p{
     color: #333;
@@ -32,6 +36,7 @@ h5{
  
  /*  navigation */
 
+
 .nav
 {
    background-color:  #fbfbfb;
@@ -42,11 +47,13 @@ h5{
      
  }
 
- nav .brand-logo {
-    font-size: 1.3rem;
+nav .brand-logo {
+    font-size: 2rem;
     color: #333;
     font-family: 'Oswald', sans-serif;  
+    padding-left: 1rem;
  }
+
 
  i.material-icons.burger {
     color: #333;
@@ -62,15 +69,10 @@ h5{
 
  /*  header */
 
-
- #header-photo.row {
-     background-image: url(/static/images/chilicover.jpg);
-     background-size: cover;
-     min-height: 300px;
-     position: relative;
-     width: 100%;
-     padding: 15px;
- }
+img.banner{
+    max-width: 80%;
+    margin-top: 1rem;
+}
 
  .header-text {
      background-color: #333;
@@ -99,14 +101,14 @@ h5{
 .card.small {
      height: 300px;
  }
-
-.about{
-    border: solid;
-}
+ .about {
+     border: dashed 2px #41403E;
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+     padding: 1.2rem !important;
+ }
 
 
  /*  Single Recipe */
-
 
 .recipe-container{
     margin-top:1rem;
@@ -126,28 +128,71 @@ h5{
      padding-bottom: 3px;
  }
 
+ /*  Profile */
+
+ .username{
+     text-transform: capitalize;
+ }
+
+
+ /*  Footer */
+
+.page-footer {
+    padding: 0.5rem;
+    color: #d50000;
+}
 
 
 
- /*  Add Recipe */
 
 
 
 
-@media only screen and (min-width: 993px){
+
+
+
+
+
+@media only screen and (min-width: 768px){
 .container {
     width: 85%;
 }
 }
 
 
-
- @media (min-width: 480px) {
-     nav .brand-logo {
+ @media only screen and (min-width: 320px) and (max-device-width : 480px) {
+     
+    p{
+        font-size: 1rem;
+    }
+    
+      
+    nav.brand-logo {
          font-size: 2rem;
      }
 
      a.brand-logo {
-         padding-left: 2rem
+         padding-left: 1rem;
+         font-size: 1.2rem
      }
+     .banner{
+        -webkit-transform: scale(1.5);
+        transform: scale(1.4); 
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        margin-bottom: 1.2rem;
+        max-width: 100%;
+        margin-top: 0;
+     }
+
+    .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
  }
+
