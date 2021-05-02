@@ -210,7 +210,7 @@ Imagery:
 
 ## [](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/README.md#testing)Testing
 
-All testing was documented in a separate filed that can be accessed [here.](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/README.md/master/TESTING.md)
+All testing was documented in a separate filed that can be accessed [here.](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/TESTING.md)
 
 ## [](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/README.md#bugs)Bugs
 
