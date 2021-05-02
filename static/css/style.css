@@ -144,7 +144,7 @@ img.banner{
 
 .page-footer {
     padding: 0.5rem;
-    color: #d50000;
+    background-color: #d50000 !important;
 }
 
 
