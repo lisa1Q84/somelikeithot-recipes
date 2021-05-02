@@ -24,8 +24,8 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def get_index():
-    top5recipes = mongo.db.recipes.find().sort("views", -1).limit(9)
-    return render_template("index.html", recipes=top5recipes)
+    top9recipes = mongo.db.recipes.find().sort("views", -1).limit(9)
+    return render_template("index.html", recipes=top9recipes)
 
 
 # ALL RECIPES
