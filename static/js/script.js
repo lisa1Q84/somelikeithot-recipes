@@ -1,12 +1,16 @@
+
+    // Code below was copied from https://materializecss.com/ for the collapsible sidenav, for the forms, 
+    //for the dropdown buttons and for the modal.
+
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
     $('.dropdown-trigger').dropdown();
-    $('.modal').modal()
+    $('.modal').modal();
 
 
-    // Code below was copied from code institute mini project - adding A task - writing to the database - Materialize Form Validation 
+    // Code below was copied from code institute mini project for adding A task, writing to DB, and Materialize Form Validation 
     // https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/04-AddingATask-WritingToTheDatabase/02-materialize-select-validation/static/js/script.js
 
     validateMaterializeSelect();
