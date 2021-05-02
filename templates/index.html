@@ -14,14 +14,13 @@
             <h4 class="center-align"> Welcome! </h4>
                 <p>
                     Love a little spice? Love lots of spice? 
-                    Go ahead and admire the delicious dishes you could be cooking over the holidays (or any time really!) Between all these
-                    you're sure to find something you love! <br>
-                    If you'd like to add your own recipes, please <br><br>
-                </p> 
-                <p class="center-align"><a href="{{ url_for ('login')}}" class="btn red accent-4">Login/ Register</a>
+                    Go ahead and admire the delicious dishes and get inspired for your next cooking session. 
+                    Between all these dishes you're sure to find something you love! <br><br>
+                    If you'd like to add your own recipes, you have to create an account.
                 </p>
                 <div class="hide-on-small-only">
-                    <br><br><br>
+                    <br>
+                    <img class="responsive-img" src="static/images/marilyn.jpeg" alt="marilyn monroe">
                     <h4 class="center-align"> Subscribe to our Newsletter</h4>
                         <p> You will know first about new, exciting recipes!</p>
                         <form  class="form-inline" method="POST" action="{{ url_for('subscribe') }}">              
