@@ -20,8 +20,6 @@ mongo = PyMongo(app)
 
 
 # HOME / INDEX
-
-
 @app.route("/")
 def get_index():
     top9recipes = mongo.db.recipes.find().sort("views", -1).limit(9)
@@ -29,16 +27,13 @@ def get_index():
 
 
 # ALL RECIPES
-
-
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("/recipes/recipes.html", recipes=recipes)
 
+
 # SEARCH RECIPES
-
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -49,9 +44,8 @@ def search():
         flash(f"Your search for {query} returned {len(recipes)} result(s)!")
     return render_template("/recipes/recipes.html", recipes=recipes)    
 
+
 # FILTER RECIPES (CATEGORY & SPICE)
-
-
 @app.route("/category_filter/<id>")
 def category_filter(id):
     recipes = list(mongo.db.recipes.find({"category_name": id}))
@@ -65,8 +59,6 @@ def spice_filter(id):
 
 
 # SINGLE RECIPE
-
-
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
@@ -76,8 +68,6 @@ def recipe(recipe_id):
 
 
 # REGISTER
-
-
 @ app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -100,9 +90,8 @@ def register():
 
     return render_template("/user/register.html")
 
+
 # LOGIN
-
-
 @ app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -131,8 +120,6 @@ def login():
 
 
 # PROFILE PAGE
-
-
 @ app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
@@ -148,8 +135,6 @@ def profile(username):
 
 
 # LOGOUT
-
-
 @ app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -158,8 +143,6 @@ def logout():
 
 
 # ADD RECIPE
-
-
 @ app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if not session.get("user"):
@@ -195,8 +178,6 @@ def add_recipe():
 
 
 # EDIT RECIPE
-
-
 @ app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
 
@@ -233,7 +214,6 @@ def edit_recipe(recipe_id):
 
 
 # DELETE RECIPE
-
 @ app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -242,8 +222,6 @@ def delete_recipe(recipe_id):
 
 
 # SUBSCRIBE TO NEWSLETTER
-
-
 @app.route("/subscribe", methods=["GET", "POST"])
 def subscribe():
     if request.method == "POST":
@@ -263,7 +241,6 @@ def subscribe():
 
 
 # ERROR HANDLERS
-
 @app.errorhandler(403)
 def forbidden(e):
     return render_template("/error_handlers/403.html"), 403
@@ -280,8 +257,6 @@ def server_error(e):
 
 
 # THE APP ITSELF
-
-
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
