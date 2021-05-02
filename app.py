@@ -240,6 +240,7 @@ def delete_recipe(recipe_id):
     flash("Recipe successfully deleted")
     return redirect(url_for("profile", username=session['user']))
 
+
 # SUBSCRIBE TO NEWSLETTER
 
 
