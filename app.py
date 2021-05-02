@@ -47,8 +47,7 @@ def search():
         flash(f"We're sorry but no recipes with {query} were found!")
     else:
         flash(f"Your search for {query} returned {len(recipes)} result(s)!")
-    return render_template("/recipes/recipes.html", recipes=recipes)
-    
+    return render_template("/recipes/recipes.html", recipes=recipes)    
 
 # FILTER RECIPES (CATEGORY & SPICE)
 
@@ -191,8 +190,8 @@ def add_recipe():
     spicelevel = mongo.db.spicelevel.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "recipes/add_recipe.html", spicelevel=spicelevel, 
-        categories=categories)
+        "recipes/add_recipe.html", spicelevel=spicelevel, categories=categories
+        )
 
 
 # EDIT RECIPE
@@ -240,6 +239,26 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe successfully deleted")
     return redirect(url_for("profile", username=session['user']))
+
+# SUBSCRIBE TO NEWSLETTER
+
+
+@app.route("/subscribe", methods=["GET", "POST"])
+def subscribe():
+    if request.method == "POST":
+        existing_email = mongo.db.subscribers.find_one(
+            {"email_address": request.form.get("email_address")})
+
+        if existing_email:
+            flash("You have already signed up to the newsletter")
+            return redirect(url_for('get_index'))
+        subscribe = {
+            "email_address": request.form.get("email_address")
+        }
+        mongo.db.subscribers.insert_one(subscribe)
+
+    flash("You have succesfully subscribed")
+    return redirect(url_for("get_index"))
 
 
 # ERROR HANDLERS
