@@ -3,42 +3,48 @@
 
 
 <div class="row">
-    <div class="col s12 m8 offset-m2">
+    <div class="col s12">
         <div class="card-panel">
-            <h3 class="center-align light-blue-text text-darken-4">
-                {{ username }}'s Recipes
+            <h3 class="center-align username">
+               {{ username }}s Recipes 
             </h3>
         </div>
         <div class="row">
             {% for recipe in recipes %}
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-image">
-                        <img class="img_recipe" src="{{ recipe.img_url }}" alt="recipe">
-                    </div>
-                    <div class="card-content">
-                        <h5>{{ recipe.recipe_name }}</h5>
-                            <p>Spice-Level: {{ recipe.spiciness}} <br>
-                            Prep-Time: {{ recipe.prep_time}}</p>
-                    </div>
-                    <div class="card-action"> 
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">delete</i></a>   
-                          <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
-                            <div class="modal-content">
-                            <h4>Are you sure you want to delete your recipe?</h4>
+            <div class="col s12 m6 l4">
+                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
+
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img_recipe responsive-img" src="{{ recipe.img_url }}" alt="recipe image">
                             </div>
-                            <div class="modal-footer">
-                                <a href="#" class="modal-close btn-flat">Cancel</a>
-                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect red accent-4 btn-flat">YES</a>
+                            <div class="card-content">
+                                <h4>{{ recipe.recipe_name }}</h4>
+                                    <p>Spice-Level: {{ recipe.spiciness}} <br>
+                                    Prep-Time: {{ recipe.prep_time}} Minutes</p>
+                            </div>
+                            <div class="card-action"> 
+                                        <a class="btn waves-effect btn modal-trigger red accent-4" Style="margin-right:30px;" href="#modal1"><i class="material-icons iconclass">delete</i></a>   
+                                        <!-- Modal Structure -->
+                                        <div id="modal1" class="modal">
+                                            <div class="modal-content">
+                                            <h4>Are you sure you want to delete your recipe?</h4>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" class="modal-close waves-effect btn-flat red accent-4 ">Cancel</a>
+                                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect btn-flat red accent-4">YES</a>
+                                            </div>
+                                        </div>
+
+                                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                                            class="btn waves-effect teal lighten-1"><i class="material-icons iconclass">edit</i></a>
                             </div>
                         </div>
-
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                            class="btn-floating btn waves-effect teal lighten-1"><i class="material-icons">edit</i></a>
                     </div>
-                </div>
+                </a>
             </div>
+
             {% endfor %}
         </div>
     </div>
