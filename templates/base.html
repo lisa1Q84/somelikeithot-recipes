@@ -19,7 +19,7 @@
 
     <nav class="nav">
         <div class="nav-wrapper">
-            <a href="{{ url_for('get_index') }}" class="brand-logo"> 🌶 SOME LIKE IT HOT </a>
+            <a href="{{ url_for('get_index') }}" class="brand-logo"> 🌶 SOME LIKE IT HOT</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons burger">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_index') }}">Home</a></li>
@@ -52,18 +52,18 @@
 
 </header>
 
-<section>
-    <!-- PLACE TO SHOW FLASH MESSAGES -->
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <div class="row flashes">
-        <h4 class="deep-orange lighten-4 center-align">{{ message }}</h4>
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-</section>
+    <section>
+        <!-- PLACE TO SHOW FLASH MESSAGES -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="teal lighten-2 center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
 
 <body>
 
@@ -71,6 +71,16 @@
 
 
     {% endblock %}
+
+
+
+     
+    <footer class="page-footer">
+            <p class="m-0 center-align white-text">Copyright &copy; SOME LIKE IT HOT - MS3 Lisa Feigen -  2021</p>
+    </footer>
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
