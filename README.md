@@ -66,7 +66,7 @@ The newly created live site can be viewed  [here](https://flask-recipe-app-ms3.h
 
 Features:
 
--   Navigation menu – a basic and easily visible navigation menu from materialize that folds on mobile . The name and logo on top on the left is only hidden on the Index page as the banner would repeat the title.
+-   Navigation menu – a basic and easily visible navigation menu from Materialize that folds on mobile . The name and logo on top on the left is only hidden on the Index page as the banner would repeat the title.
 
 The sections will be:
     
@@ -98,9 +98,9 @@ If the user clicks logout on the menu they will  	be redirected to the index pag
 
 ----------
 
-I am not a very talented designer, therefore I decided to keep the site as simple as possible. 
-
-There is no previous buttons because the user is meant to only move in one direction. If the user is curious what happens if they answers questions differently, they can press start and go back to the beginning. 
+The website is structured as follows:
+ 
+<img src="https://github.com/lisa1Q84/somelikeithot-recipes/tree/master/static/images/Structure.png">
 
 The structure of my database is as follows:
 
