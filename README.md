@@ -99,9 +99,9 @@ If the user clicks logout on the menu they will  	be redirected to the index pag
 ----------
 
 The website is structured as follows:
- 
-<img src="https://github.com/lisa1Q84/somelikeithot-recipes/tree/master/static/images/Structure.png">
 
+![](https://github.com/lisa1Q84/somelikeithot-recipes/tree/master/static/images/Structure.png)
+ 
 The structure of my database is as follows:
 
 RECIPES
