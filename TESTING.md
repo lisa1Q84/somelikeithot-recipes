@@ -4,18 +4,20 @@
 
 [W3C Markup Validation Service](https://validator.w3.org/)
 
--   W3C Markup Validation Service has been used for the testing of the  **HTML**  and  **no error**  was found. The result can be seen here  [\[HTML Test\]](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/HTML_TEST.png)
+-   W3C Markup Validation Service has been used for the testing of the  **HTML**  and  **2 errors**  were found. I could not correct either of them as one was the duplication of the email tag (because on small devices I showed the newsletter signup div in a different place. The other error was caused by the style tag inside the body tag due to me using it to hide the logo on the index page. I tried moving it to the top but that caused several errors. As it is working and I had time constraints I kept it where it is. It would likely be possible to hide the logo on the index page with a function in app.py.
+ The result can be seen here  [\[HTML Test\]](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/html_test.png)
 
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
--   W3C CSS Validation service has been used to check the  **CSS**  of the project and  **no error**  was found. The result can be seen here.  [\[CSS Test\]](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/CSS_TEST.png) 
+-   W3C CSS Validation service has been used to check the  **CSS**  of the project and  **2 errors**  were found. One of them is in the materialize css and I am unable to access that. The other error tells me the max widht otion in the media queries is deprecated. However, it works perfect for me and removing it had a negative impact so I added it back.
+The result can be seen here.  [\[CSS Test\]](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/css_test.png) 
 
 [JS HINT](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/jshint.png)
 
 - JSHint is a static code analysis tool used in software development for checking if JavaScript source code complies with coding rules. It helped me discover that I had not closed a bracket disabling my dropdown button. 
 
 [Python validator | PEP8](http://pep8online.com/):
- - No errors found, see [here](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/jshint.png%29)
+ - No errors found, see [here](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/images/PEP8_test.png)
 
 
 The Project was tested for Browser compatibility on multiple versions of IE, Chrome and Safari
