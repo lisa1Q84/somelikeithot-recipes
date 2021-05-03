@@ -331,6 +331,9 @@ https://www.pennmedicine.org/updates/blogs/health-and-wellness/2019/april/spicy-
 The Narilyn Monroe image was taken from 
 http://www.frockflicks.com/tbt-some-like-it-hot-1959/
 
+**Future plans for improvement**
+
+Due to poor time management from my side I was unable to add more filter options and a rating function which would have been a great addition to the page. Also another function I want to add is the possibility for users to make a list with their favorite recipes. I will hopefully be able to add it in the future. 
 
 
 **Acknowledgements**
