@@ -1,6 +1,6 @@
 ﻿# **Readme: MS3 - SOME LIKE IT HOT (Recipe Sharing Website)**
 
-
+<img src="/static/images/Wireframes/1.png" width=50% height=50%>
 
 # Table of content:
 
@@ -145,7 +145,17 @@ USERS
 
 ----------
 
-The website is meant to look friendly and fun, inviting users to browse recipes.
+<img src="/static/images/Wireframes/1.png" width=50% height=50%>
+
+The website is meant to look friendly and fun, inviting users to browse recipes. 
+
+My original wireframes looked quite different but I feel I improved the design by trial and error.
+
+<img src="/static/images/Wireframes/2.png" width=50% height=50%>
+<img src="/static/images/Wireframes/3.png" width=50% height=50%>
+
+All wireframes can be found [here](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/static/images/Wireframes)
+
 
 Colours:
 
@@ -217,8 +227,6 @@ All testing was documented in a separate filed that can be accessed [here.](http
 Bug: I was unable to find a way to create a uniform size for the images entered by users so that some cards have a different size than others. 
 
 Bug: The validation of the form fields only changes to green when the user clicks on the next input field. 
-
-Bug: 
 
 
 ## [](https://github.com/lisa1Q84/somelikeithot-recipes/blob/master/README.md#deployment)Deployment
@@ -319,6 +327,9 @@ Content has been either created by me or by the users entering recipes.
 
 The default recipe image has been taken from 
 https://www.pennmedicine.org/updates/blogs/health-and-wellness/2019/april/spicy-foods)
+
+The Narilyn Monroe image was taken from 
+http://www.frockflicks.com/tbt-some-like-it-hot-1959/
 
 
 
