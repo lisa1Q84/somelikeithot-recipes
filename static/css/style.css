@@ -118,6 +118,11 @@ img.banner{
     max-height: 50%;
 }
 
+.card-content{
+    max-height: inherit !important;
+    padding: 0.5rem !important;
+}
+
  .ingredients {
      border: dashed 2px #41403E;
      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
